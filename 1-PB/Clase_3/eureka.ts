@@ -2,19 +2,15 @@ import * as rls from 'readline-sync';
 
 let clave : string = "eureka";
 
-let claveIncorrecta : number = 0
+let intentos : number = 0
+let claveIngresada : string = "";3
 
-while(claveIncorrecta<3){
-    let ingresarClave: string  = rls.question("Ingrese clave: ")
-    if(clave==ingresarClave){
-        console.log("Bienvenido")
-        claveIncorrecta=3
+while(intentos<3 && claveIngresada != clave){
+    claveIngresada = rls.question("Ingrese la clave: ")
+    intentos++
 
-    }if(clave != ingresarClave){
-        claveIncorrecta=claveIncorrecta+1
-        console.log("Intentos: ",claveIncorrecta)
-        console.log("No puede ingresar")
-
-    }
 }
-        
+if(claveIngresada != clave){
+    console.log("Ya no tenes mas intentos")
+
+}
